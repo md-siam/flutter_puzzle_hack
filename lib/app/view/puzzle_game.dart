@@ -14,7 +14,8 @@ class PuzzleGame extends StatefulWidget {
 class _PuzzleGameState extends State<PuzzleGame> {
   @override
   Widget build(BuildContext context) {
-    var size = MediaQuery.of(context).size;
+    var width = MediaQuery.of(context).size.width;
+    var height = MediaQuery.of(context).size.height;
     return Scaffold(
       appBar: const TopAppBar(),
       body: SafeArea(
@@ -22,11 +23,15 @@ class _PuzzleGameState extends State<PuzzleGame> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
+              Text(
+                "$width x $height",
+                style: TextStyle(fontSize: 30),
+              ),
               ClayContainer(
                 emboss: true,
                 color: Theme.of(context).primaryColor,
-                width: size.height * 0.5,
-                height: size.height * 0.5,
+                width: height / 2,
+                height: height / 2,
                 borderRadius: 10,
               ),
             ],

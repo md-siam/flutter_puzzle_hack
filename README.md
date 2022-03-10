@@ -5,7 +5,7 @@
 
 # Flutter Puzzle Hack
 
-<img align="right" src="assets/images/playstore.png" height="190"></img>
+<img align="right" src="assets/images/icons/playstore.png" height="190"></img>
 
 A new Flutter project.
 

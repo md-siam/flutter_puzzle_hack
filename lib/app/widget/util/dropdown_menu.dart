@@ -3,7 +3,7 @@ import 'package:provider/provider.dart';
 import 'package:flutter/cupertino.dart';
 
 import 'design/arrow_clipper.dart';
-import '/app/view/score_board.dart';
+import '../../view/previous_scores.dart';
 import '../../provider/sound_provider.dart';
 
 class CustomDropdownMenu extends StatefulWidget {
@@ -179,7 +179,7 @@ void onSelected(BuildContext context, int item) {
     case 0:
       Navigator.of(context).push(
         CupertinoPageRoute(
-          builder: (context) => const ScoreBoard(),
+          builder: (context) => const PreviousScores(),
         ),
       );
 
