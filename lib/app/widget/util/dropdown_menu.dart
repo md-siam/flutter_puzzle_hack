@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter/cupertino.dart';
 
-import '../util/arrow_clipper.dart';
+import 'design/arrow_clipper.dart';
 import '/app/view/score_board.dart';
 import '../../provider/sound_provider.dart';
 
