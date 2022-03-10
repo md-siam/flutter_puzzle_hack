@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:day_night_switcher/day_night_switcher.dart';
 
 import 'util/dropdown_menu.dart';
@@ -32,7 +33,12 @@ class TopAppBar extends StatelessWidget with PreferredSizeWidget {
           );
         },
       ),
-      title: const Text('Puzzle Hack'),
+      title: Text(
+        'Puzzle Hack',
+        style: GoogleFonts.alata(
+          textStyle: const TextStyle(letterSpacing: 2.0),
+        ),
+      ),
       actions: [
         CustomDropdownMenu(
           borderRadius: BorderRadius.circular(10),

@@ -1,5 +1,6 @@
-import 'package:clay_containers/widgets/clay_container.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:clay_containers/widgets/clay_container.dart';
 
 import '/app/widget/top_appbar.dart';
 
