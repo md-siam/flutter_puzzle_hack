@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:day_night_switcher/day_night_switcher.dart';
 
-import 'dropdown_menu.dart';
+import 'components/dropdown_menu.dart';
 import '../provider/theme_provider.dart';
 import '../provider/sound_provider.dart';
 
