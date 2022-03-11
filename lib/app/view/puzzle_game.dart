@@ -43,21 +43,23 @@ class _PuzzleGameState extends State<PuzzleGame> {
       appBar: const TopAppBar(),
       body: SafeArea(
         child: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Menu(
-                reset: reset,
-                move: move,
-                secondsPassed: secondsPassed,
-                size: size,
-              ),
-              Grid(
-                numbers: numbers,
-                size: size,
-                clickGrid: clickGrid,
-              ),
-            ],
+          child: SingleChildScrollView(
+            controller: null,
+            child: Column(
+              children: [
+                Menu(
+                  reset: reset,
+                  move: move,
+                  secondsPassed: secondsPassed,
+                  size: size,
+                ),
+                Grid(
+                  numbers: numbers,
+                  size: size,
+                  clickGrid: clickGrid,
+                ),
+              ],
+            ),
           ),
         ),
       ),

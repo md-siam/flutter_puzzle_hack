@@ -24,7 +24,7 @@ class TopAppBar extends StatelessWidget with PreferredSizeWidget {
                 children: [
                   ResponsiveVisibility(
                     visible: false,
-                    visibleWhen: const [Condition.smallerThan(name: TABLET)],
+                    visibleWhen: const [Condition.smallerThan(name: MOBILE)],
                     child: DayNightSwitcherIcon(
                       dayBackgroundColor: const Color(0xFF0C91D6),
                       isDarkModeEnabled: themeProvider.darkTheme,
@@ -38,7 +38,7 @@ class TopAppBar extends StatelessWidget with PreferredSizeWidget {
                   ),
                   ResponsiveVisibility(
                     visible: false,
-                    visibleWhen: const [Condition.largerThan(name: MOBILE)],
+                    visibleWhen: const [Condition.largerThan(name: 'ExSmall')],
                     child: Padding(
                       padding: const EdgeInsets.only(left: 5.0),
                       child: Row(

@@ -16,12 +16,10 @@ class ResetButton extends StatelessWidget {
       style: ElevatedButton.styleFrom(
         elevation: 10,
         shape: const StadiumBorder(),
-        primary: Colors.white,
       ),
       child: const Text(
         "Reset",
         style: TextStyle(
-          color: Colors.black,
           fontWeight: FontWeight.bold,
         ),
       ),
