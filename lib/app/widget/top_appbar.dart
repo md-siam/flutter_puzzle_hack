@@ -109,6 +109,7 @@ class _TopAppBarState extends State<TopAppBar> {
                     IconButton(
                       onPressed: () {
                         soundProvider.playMenuOpen();
+                        soundProvider.stopSound();
                         setState(() {
                           isMute = !isMute;
                         });
