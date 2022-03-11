@@ -4,23 +4,22 @@ import 'util/move.dart';
 import 'util/reset_button.dart';
 import 'util/timer.dart';
 
-class Menu extends StatelessWidget {
+class MenuItems extends StatelessWidget {
   Function reset;
   int move;
   int secondsPassed;
-  var size;
-  Menu({
+
+  MenuItems({
     Key? key,
     required this.reset,
     required this.move,
     required this.secondsPassed,
-    required this.size,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: size.height * 0.10,
+      width: 600.0,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         crossAxisAlignment: CrossAxisAlignment.center,

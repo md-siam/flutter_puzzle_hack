@@ -1,22 +1,22 @@
 import 'package:flutter/material.dart';
+import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:clay_containers/widgets/clay_container.dart';
 
-import 'util/grid_button.dart';
+import 'util/grid_container.dart';
 
 class Grid extends StatelessWidget {
   var numbers = [];
-  var size;
   Function clickGrid;
   Grid({
     Key? key,
     required this.numbers,
-    required this.size,
     required this.clickGrid,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    var boardSize = 500.0;
+    var screenWidth = MediaQuery.of(context).size.width;
+    var boardSize = screenWidth <= 480 ? 100.w : 500.0;
     return SizedBox(
       width: boardSize,
       height: boardSize,
@@ -42,7 +42,7 @@ class Grid extends StatelessWidget {
                   itemCount: numbers.length,
                   itemBuilder: (context, index) {
                     return numbers[index] != 0
-                        ? GridButton("${numbers[index]}", () {
+                        ? GridContainer("${numbers[index]}", () {
                             clickGrid(index);
                           })
                         : const SizedBox.shrink();

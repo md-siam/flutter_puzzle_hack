@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:clay_containers/widgets/clay_container.dart';
+import 'package:responsive_framework/responsive_framework.dart';
 
 import '/app/provider/sound_provider.dart';
 
-class GridButton extends StatelessWidget {
+class GridContainer extends StatelessWidget {
   Function click;
   String text;
 
-  GridButton(this.text, this.click, {Key? key}) : super(key: key);
+  GridContainer(this.text, this.click, {Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +20,6 @@ class GridButton extends StatelessWidget {
             click();
             soundProvider.playSlidingSound();
           },
-          //onTap: click as void Function()?,
           child: Card(
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(8.0),
@@ -32,8 +32,15 @@ class GridButton extends StatelessWidget {
               child: Center(
                 child: Text(
                   text,
-                  style: const TextStyle(
-                    fontSize: 30,
+                  style: TextStyle(
+                    fontSize: ResponsiveValue(
+                      context,
+                      defaultValue: 30.0,
+                      valueWhen: const [
+                        Condition.smallerThan(name: MOBILE, value: 20.0),
+                        Condition.largerThan(name: TABLET, value: 30.0)
+                      ],
+                    ).value,
                     fontWeight: FontWeight.bold,
                   ),
                 ),

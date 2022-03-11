@@ -14,7 +14,7 @@ class Move extends StatelessWidget {
       child: Text(
         "Move: $move",
         style: const TextStyle(
-          fontSize: 18,
+          fontSize: 18.0,
           fontWeight: FontWeight.bold,
         ),
       ),

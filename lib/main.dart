@@ -7,6 +7,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 
 import 'app/view/puzzle_game.dart';
@@ -51,7 +52,11 @@ class MyApp extends StatelessWidget {
               const ResponsiveBreakpoint.autoScale(2460, name: '4K'),
             ],
           ),
-          home: const PuzzleGame(),
+          home: ResponsiveSizer(
+            builder: (context, orientation, screenType) {
+              return const PuzzleGame();
+            },
+          ),
         );
       },
     );

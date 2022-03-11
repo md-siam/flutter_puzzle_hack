@@ -8,11 +8,20 @@ import 'util/dropdown_menu.dart';
 import '../provider/theme_provider.dart';
 import '../provider/sound_provider.dart';
 
-class TopAppBar extends StatelessWidget with PreferredSizeWidget {
+class TopAppBar extends StatefulWidget with PreferredSizeWidget {
   const TopAppBar({
     Key? key,
   }) : super(key: key);
 
+  @override
+  State<TopAppBar> createState() => _TopAppBarState();
+
+  @override
+  Size get preferredSize => const Size.fromHeight(kToolbarHeight);
+}
+
+class _TopAppBarState extends State<TopAppBar> {
+  bool isMute = false;
   @override
   Widget build(BuildContext context) {
     return AppBar(
@@ -45,7 +54,7 @@ class TopAppBar extends StatelessWidget with PreferredSizeWidget {
                         mainAxisAlignment: MainAxisAlignment.start,
                         children: [
                           SizedBox(
-                            width: 50,
+                            width: 50.0,
                             child: DayNightSwitcher(
                               dayBackgroundColor: const Color(0xFF0C91D6),
                               isDarkModeEnabled: themeProvider.darkTheme,
@@ -79,11 +88,11 @@ class TopAppBar extends StatelessWidget with PreferredSizeWidget {
           visible: false,
           visibleWhen: const [Condition.smallerThan(name: TABLET)],
           child: CustomDropdownMenu(
-            borderRadius: BorderRadius.circular(10),
+            borderRadius: BorderRadius.circular(10.0),
             backgroundColor: Theme.of(context).hoverColor,
             icons: const [
-              Icon(Icons.volume_up, size: 30),
-              Icon(Icons.info_outline_rounded, size: 30),
+              Icon(Icons.volume_up, size: 30.0),
+              Icon(Icons.info_outline_rounded, size: 30.0),
             ],
             onChange: (index) {},
           ),
@@ -100,8 +109,13 @@ class TopAppBar extends StatelessWidget with PreferredSizeWidget {
                     IconButton(
                       onPressed: () {
                         soundProvider.playMenuOpen();
+                        setState(() {
+                          isMute = !isMute;
+                        });
                       },
-                      icon: const Icon(Icons.volume_up, size: 40.0),
+                      icon: isMute
+                          ? const Icon(Icons.volume_off, size: 40.0)
+                          : const Icon(Icons.volume_up, size: 40.0),
                     ),
                     const SizedBox(width: 10.0),
                     IconButton(
@@ -127,7 +141,7 @@ class TopAppBar extends StatelessWidget with PreferredSizeWidget {
       context: context,
       applicationIcon: const Icon(
         Icons.gamepad_rounded,
-        size: 80,
+        size: 80.0,
       ),
       applicationName: 'Puzzle Hack',
       applicationVersion: '1.0.0',
@@ -140,7 +154,4 @@ class TopAppBar extends StatelessWidget with PreferredSizeWidget {
       ],
     );
   }
-
-  @override
-  Size get preferredSize => const Size.fromHeight(kToolbarHeight);
 }

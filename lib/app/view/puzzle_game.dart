@@ -5,7 +5,7 @@ import 'package:clay_containers/widgets/clay_container.dart';
 
 import '/app/widget/top_appbar.dart';
 import '/app/widget/grid.dart';
-import '/app/widget/menu.dart';
+import '../widget/menu_items.dart';
 
 class PuzzleGame extends StatefulWidget {
   const PuzzleGame({Key? key}) : super(key: key);
@@ -47,15 +47,14 @@ class _PuzzleGameState extends State<PuzzleGame> {
             controller: null,
             child: Column(
               children: [
-                Menu(
+                MenuItems(
                   reset: reset,
                   move: move,
                   secondsPassed: secondsPassed,
-                  size: size,
                 ),
+                const SizedBox(height: 10.0),
                 Grid(
                   numbers: numbers,
-                  size: size,
                   clickGrid: clickGrid,
                 ),
               ],
@@ -129,7 +128,7 @@ class _PuzzleGameState extends State<PuzzleGame> {
                   children: [
                     const Text(
                       "Congratulation!!\n\nYou Won!!\n\n",
-                      style: TextStyle(fontSize: 20),
+                      style: TextStyle(fontSize: 20.0),
                       textAlign: TextAlign.center,
                     ),
                     SizedBox(

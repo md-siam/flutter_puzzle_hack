@@ -14,7 +14,7 @@ class Time extends StatelessWidget {
       child: Text(
         "Time: $secondsPassed s",
         style: const TextStyle(
-          fontSize: 18,
+          fontSize: 18.0,
           fontWeight: FontWeight.bold,
         ),
       ),

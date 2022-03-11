@@ -43,6 +43,8 @@ dependencies:
   google_fonts: ^2.3.1
   # For responsive UI
   responsive_framework: ^0.1.7
+  ## For responsive SizedBox
+  responsive_sizer: ^3.0.5+1
   # For state-management
   provider: ^6.0.2
   # For modern neumorphic containers

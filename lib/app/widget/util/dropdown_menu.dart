@@ -39,7 +39,7 @@ class _CustomDropdownMenuState extends State<CustomDropdownMenu>
       vsync: this,
       duration: const Duration(milliseconds: 600),
     );
-    _borderRadius = widget.borderRadius ?? BorderRadius.circular(4);
+    _borderRadius = widget.borderRadius ?? BorderRadius.circular(4.0);
     _key = LabeledGlobalKey("button_icon");
     super.initState();
   }
@@ -85,7 +85,7 @@ class _CustomDropdownMenuState extends State<CustomDropdownMenu>
               icon: AnimatedIcons.menu_close,
               progress: _animationController,
             ),
-            iconSize: 35,
+            iconSize: 35.0,
             onPressed: () {
               if (isMenuOpen) {
                 soundProvider.playMenuClose();
@@ -113,7 +113,7 @@ class _CustomDropdownMenuState extends State<CustomDropdownMenu>
               Align(
                 alignment: Alignment.topCenter,
                 child: Material(
-                  elevation: 10,
+                  elevation: 10.0,
                   color: Colors.transparent,
                   shadowColor: Theme.of(context).shadowColor,
                   shape: ShapeBorder.lerp(
@@ -124,8 +124,8 @@ class _CustomDropdownMenuState extends State<CustomDropdownMenu>
                   child: ClipPath(
                     clipper: ArrowClipper(),
                     child: Container(
-                      width: 17,
-                      height: 17,
+                      width: 17.0,
+                      height: 17.0,
                       color: widget.backgroundColor,
                     ),
                   ),
@@ -134,7 +134,7 @@ class _CustomDropdownMenuState extends State<CustomDropdownMenu>
               Padding(
                 padding: const EdgeInsets.only(top: 15.0),
                 child: Material(
-                  elevation: 10,
+                  elevation: 10.0,
                   color: Colors.transparent,
                   shadowColor: Theme.of(context).shadowColor,
                   child: Container(
@@ -190,7 +190,7 @@ void onSelected(BuildContext context, int item) {
         context: context,
         applicationIcon: const Icon(
           Icons.gamepad_rounded,
-          size: 80,
+          size: 80.0,
         ),
         applicationName: 'Puzzle Hack',
         applicationVersion: '1.0.0',
