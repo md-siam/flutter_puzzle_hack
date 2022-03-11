@@ -44,7 +44,6 @@ class _PuzzleGameState extends State<PuzzleGame> {
             controller: null,
             child: Column(
               children: [
-               
                 MenuItems(
                   reset: reset,
                   move: move,

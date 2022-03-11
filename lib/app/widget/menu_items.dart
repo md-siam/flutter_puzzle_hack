@@ -4,6 +4,7 @@ import 'util/move.dart';
 import 'util/reset_button.dart';
 import 'util/timer.dart';
 
+// ignore: must_be_immutable
 class MenuItems extends StatelessWidget {
   Function reset;
   int move;

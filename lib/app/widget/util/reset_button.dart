@@ -3,6 +3,7 @@ import 'package:responsive_framework/responsive_framework.dart';
 
 import 'design/neumorphic_button.dart';
 
+// ignore: must_be_immutable
 class ResetButton extends StatelessWidget {
   Function reset;
   ResetButton({
