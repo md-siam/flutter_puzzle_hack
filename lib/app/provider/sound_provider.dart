@@ -5,6 +5,8 @@ class SoundProvider extends ChangeNotifier {
   final AudioCache audioCache = AudioCache(prefix: 'assets/audio/');
   AudioPlayer? player;
   bool _isMute = false;
+  bool get isMute => _isMute;
+   
 
   //*****  S L I D I N G   S O U N D  ****//
   playSlidingSound() async {

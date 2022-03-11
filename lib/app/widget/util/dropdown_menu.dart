@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:flutter/cupertino.dart';
 
 import 'design/arrow_clipper.dart';
-import '../../view/previous_scores.dart';
 import '../../provider/sound_provider.dart';
 
 class CustomDropdownMenu extends StatefulWidget {
@@ -41,6 +39,7 @@ class _CustomDropdownMenuState extends State<CustomDropdownMenu>
     );
     _borderRadius = widget.borderRadius ?? BorderRadius.circular(4.0);
     _key = LabeledGlobalKey("button_icon");
+
     super.initState();
   }
 
@@ -148,18 +147,7 @@ class _CustomDropdownMenuState extends State<CustomDropdownMenu>
                       children: List.generate(
                         widget.icons.length,
                         (index) {
-                          return GestureDetector(
-                            onTap: () {
-                              onSelected(context, index);
-                              //widget.onChange!(index);
-                              closeMenu();
-                            },
-                            child: SizedBox(
-                              width: buttonSize.width,
-                              height: buttonSize.height,
-                              child: widget.icons[index],
-                            ),
-                          );
+                          return onSelected(index);
                         },
                       ),
                     ),
@@ -172,36 +160,48 @@ class _CustomDropdownMenuState extends State<CustomDropdownMenu>
       },
     );
   }
-}
 
-void onSelected(BuildContext context, int item) {
-  switch (item) {
-    case 0:
-      Navigator.of(context).push(
-        CupertinoPageRoute(
-          builder: (context) => const PreviousScores(),
-        ),
-      );
+  Consumer<SoundProvider> onSelected(int index) {
+    return Consumer<SoundProvider>(
+      builder: (context, soundProvider, child) {
+        return GestureDetector(
+          onTap: () {
+            switch (index) {
+              case 0:
+                soundProvider.stopSound();
+                break;
 
-      break;
+              case 1:
+                showAboutDialog(
+                  context: context,
+                  applicationIcon: const Icon(
+                    Icons.gamepad_rounded,
+                    size: 80.0,
+                  ),
+                  applicationName: 'Puzzle Hack',
+                  applicationVersion: '1.0.0',
+                  applicationLegalese: '©2022, mdsiam.xyz',
+                  children: const [
+                    Text(
+                      '     I dedicate this app to all the freedom fighters who have died for the Bengali language, and I quote in Bengali - "আমরা তোমাদের ভুলব না।"\n     For bug founder: Please send me an email mentioning the problem, and your device model.\nEmail: md.siam03@gmail.com',
+                      textAlign: TextAlign.justify,
+                    ),
+                  ],
+                );
+                break;
+            }
+            //onSelected(context, index);
 
-    case 1:
-      showAboutDialog(
-        context: context,
-        applicationIcon: const Icon(
-          Icons.gamepad_rounded,
-          size: 80.0,
-        ),
-        applicationName: 'Puzzle Hack',
-        applicationVersion: '1.0.0',
-        applicationLegalese: '©2022, mdsiam.xyz',
-        children: const [
-          Text(
-            '     I dedicate this app to all the freedom fighters who have died for the Bengali language, and I quote in Bengali - "আমরা তোমাদের ভুলব না।"\n     For bug founder: Please send me an email mentioning the problem, and your device model.\nEmail: md.siam03@gmail.com',
-            textAlign: TextAlign.justify,
+            //widget.onChange!(index);
+            closeMenu();
+          },
+          child: SizedBox(
+            width: buttonSize.width,
+            height: buttonSize.height,
+            child: widget.icons[index],
           ),
-        ],
-      );
-      break;
+        );
+      },
+    );
   }
 }

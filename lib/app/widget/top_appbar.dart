@@ -90,9 +90,11 @@ class _TopAppBarState extends State<TopAppBar> {
           child: CustomDropdownMenu(
             borderRadius: BorderRadius.circular(10.0),
             backgroundColor: Theme.of(context).hoverColor,
-            icons: const [
-              Icon(Icons.volume_up, size: 30.0),
-              Icon(Icons.info_outline_rounded, size: 30.0),
+            icons: [
+              isMute
+                  ? const Icon(Icons.volume_off, size: 30.0)
+                  : const Icon(Icons.volume_up, size: 30.0),
+              const Icon(Icons.info_outline_rounded, size: 30.0),
             ],
             onChange: (index) {},
           ),
@@ -111,7 +113,7 @@ class _TopAppBarState extends State<TopAppBar> {
                         soundProvider.playMenuOpen();
                         soundProvider.stopSound();
                         setState(() {
-                          isMute = !isMute;
+                          isMute = soundProvider.isMute;
                         });
                       },
                       icon: isMute

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:responsive_framework/responsive_framework.dart';
 
 import 'design/neumorphic_button.dart';
 
@@ -14,7 +15,14 @@ class ResetButton extends StatelessWidget {
     return Column(
       children: [
         SizedBox(
-          width: 180,
+          width: ResponsiveValue(
+            context,
+            defaultValue: 180.0,
+            valueWhen: const [
+              Condition.smallerThan(name: MOBILE, value: 120.0),
+              Condition.largerThan(name: TABLET, value: 180.0)
+            ],
+          ).value,
           child: NeumorphicButton(
             buttonText: 'Reset',
             reset: reset,

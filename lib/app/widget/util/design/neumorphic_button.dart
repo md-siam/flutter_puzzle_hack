@@ -73,7 +73,7 @@ class _NeumorphicButtonState extends State<NeumorphicButton> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     const Icon(Icons.settings_backup_restore),
-                    const SizedBox(width: 10),
+                    const SizedBox(width: 10.0),
                     Text(
                       widget.buttonText,
                       style: const TextStyle(
