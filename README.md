@@ -9,15 +9,29 @@
 
 A new Flutter project.
 
-## Getting Started
+## Folder & File Directory
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+```
+lib
+├── app
+│   ├── provider
+│   │   ├── sound_provider.dart
+│   │   └── theme_provider.dart
+│   ├── view
+│   │   └── puzzle_game.dart
+│   ├── widget
+│   │   ├── util
+│   │   │   ├── design
+│   │   │   │   ├── arrow_clipper.dart
+│   │   │   │   └── neumorphic_button.dart
+│   │   │   ├── dropdown_menu.dart
+│   │   │   ├── grid_container.dart
+│   │   │   ├── move.dart
+│   │   │   ├── reset_button.dart
+│   │   │   └── timer.dart
+│   │   ├── grid.dart
+│   │   ├── menu_items.dart
+│   │   └── top_appbar.dart
+├── generated_plugin_registrant.dart
+└── main.dart
+```

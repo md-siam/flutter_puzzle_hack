@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
 import 'util/move.dart';
-import 'util/reset_button.dart';
 import 'util/timer.dart';
+import 'util/reset_button.dart';
 
 // ignore: must_be_immutable
 class MenuItems extends StatelessWidget {
