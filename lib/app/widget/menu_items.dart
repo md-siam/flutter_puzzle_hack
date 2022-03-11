@@ -25,7 +25,7 @@ class MenuItems extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Move(move: move),
-          ResetButton(reset: reset, text: "Reset"),
+          ResetButton(reset: reset),
           Time(secondsPassed: secondsPassed),
         ],
       ),

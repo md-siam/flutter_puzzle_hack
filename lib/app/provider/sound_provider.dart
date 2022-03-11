@@ -4,10 +4,19 @@ import 'package:audioplayers/audioplayers.dart';
 class SoundProvider extends ChangeNotifier {
   final AudioCache audioCache = AudioCache(prefix: 'assets/audio/');
 
-  //*****  B U T T O N   S O U N D  ****//
+  //*****  S L I D I N G   S O U N D  ****//
   playSlidingSound() async {
     await audioCache.play(
       'sliding_sound.wav',
+      mode: PlayerMode.LOW_LATENCY,
+    );
+    notifyListeners();
+  }
+
+  //*****  R E S E T   S O U N D  ****//
+  playResetSound() async {
+    await audioCache.play(
+      'reset_sound.wav',
       mode: PlayerMode.LOW_LATENCY,
     );
     notifyListeners();

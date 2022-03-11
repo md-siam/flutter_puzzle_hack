@@ -1,8 +1,7 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:clay_containers/widgets/clay_container.dart';
 
+import '/app/widget/util/design/neumorphic_button.dart';
 import '/app/widget/top_appbar.dart';
 import '/app/widget/grid.dart';
 import '../widget/menu_items.dart';
@@ -31,7 +30,6 @@ class _PuzzleGameState extends State<PuzzleGame> {
 
   @override
   Widget build(BuildContext context) {
-    final size = MediaQuery.of(context).size;
     timer ??= Timer.periodic(
       duration,
       (Timer t) {
@@ -47,6 +45,7 @@ class _PuzzleGameState extends State<PuzzleGame> {
             controller: null,
             child: Column(
               children: [
+               
                 MenuItems(
                   reset: reset,
                   move: move,
@@ -75,6 +74,7 @@ class _PuzzleGameState extends State<PuzzleGame> {
         (index + 4 < 16 && numbers[index + 4] == 0)) {
       setState(() {
         move++;
+
         numbers[numbers.indexOf(0)] = numbers[index];
         numbers[index] = 0;
       });
@@ -90,6 +90,7 @@ class _PuzzleGameState extends State<PuzzleGame> {
     }
   }
 
+  /// This method will reset the `puzzle board`
   void reset() {
     setState(() {
       numbers.shuffle();
@@ -99,6 +100,8 @@ class _PuzzleGameState extends State<PuzzleGame> {
     });
   }
 
+  /// This method will whether the numbers are `sorted`
+  /// or not
   bool isSorted(List list) {
     int prev = list.first;
     for (var i = 1; i < list.length - 1; i++) {
@@ -109,6 +112,8 @@ class _PuzzleGameState extends State<PuzzleGame> {
     return true;
   }
 
+  /// This method is a popup `dialog` which will be displayed
+  /// if the numbers are sorted correctly
   void checkWin() {
     if (isSorted(numbers)) {
       isActive = false;
@@ -120,7 +125,7 @@ class _PuzzleGameState extends State<PuzzleGame> {
               borderRadius: BorderRadius.circular(10.0),
             ), //this right here
             child: SizedBox(
-              height: 200,
+              height: 200.0,
               child: Padding(
                 padding: const EdgeInsets.all(10.0),
                 child: Column(
