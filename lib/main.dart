@@ -3,11 +3,11 @@
 //
 // Use of this source code is governed by an MIT-style
 // license that can be found in the LICENSE file or at
-// https://opensource.org/licenses/MIT
-
+// https://choosealicense.com/licenses/mit/
 
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:responsive_framework/responsive_framework.dart';
 
 import 'app/view/puzzle_game.dart';
 import 'app/provider/theme_provider.dart';
@@ -41,6 +41,15 @@ class MyApp extends StatelessWidget {
           debugShowCheckedModeBanner: false,
           theme:
               themeProvider.darkTheme ? MyTheme.darkTheme : MyTheme.lightTheme,
+          builder: (context, widget) => ResponsiveWrapper.builder(
+            ClampingScrollWrapper.builder(context, widget!),
+            breakpoints: [
+              const ResponsiveBreakpoint.resize(480, name: MOBILE),
+              const ResponsiveBreakpoint.autoScale(800, name: TABLET),
+              const ResponsiveBreakpoint.resize(1000, name: DESKTOP),
+              const ResponsiveBreakpoint.autoScale(2460, name: '4K'),
+            ],
+          ),
           home: const PuzzleGame(),
         );
       },
