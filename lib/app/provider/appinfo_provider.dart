@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class AppInfoProvider {
   //** P R O V I D E S    A P P I C O N **//
-  final Widget _applicationIcon = const Icon(
-    Icons.gamepad_rounded,
-    size: 80.0,
+  final Widget _applicationIcon = const FaIcon(
+    FontAwesomeIcons.hackerrank,
+    size: 40,
   );
   Widget get applicationIcon => _applicationIcon;
 

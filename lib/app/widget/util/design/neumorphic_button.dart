@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import '../../../provider/sound_provider.dart';
 
@@ -72,8 +73,8 @@ class _NeumorphicButtonState extends State<NeumorphicButton> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    const Icon(Icons.settings_backup_restore),
-                    const SizedBox(width: 5.0),
+                    const FaIcon(FontAwesomeIcons.redoAlt, size: 18),
+                    const SizedBox(width: 10.0),
                     Text(
                       widget.buttonText,
                       style: const TextStyle(
