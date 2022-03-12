@@ -18,7 +18,7 @@ class PuzzleGame extends StatefulWidget {
 
 class _PuzzleGameState extends State<PuzzleGame> {
   late RiveAnimationController _controller;
-  bool _isPlaying = false;
+  bool isPlaying = false;
   var numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15];
   int move = 0;
 
@@ -35,8 +35,8 @@ class _PuzzleGameState extends State<PuzzleGame> {
       'lookUp',
       // 'slowDance'
       autoplay: false,
-      onStop: () => setState(() => _isPlaying = false),
-      onStart: () => setState(() => _isPlaying = true),
+      onStop: () => setState(() => isPlaying = false),
+      onStart: () => setState(() => isPlaying = true),
     );
   }
 
@@ -71,13 +71,21 @@ class _PuzzleGameState extends State<PuzzleGame> {
                           child: ClayContainer(
                             color: Theme.of(context).primaryColor,
                             borderRadius: 10.0,
-                            child: ClipRRect(
-                              borderRadius: BorderRadius.circular(10.0),
-                              child: Image.asset(
-                                'assets/images/sample/darkSample.png',
-                                fit: BoxFit.fill,
-                              ),
-                            ),
+                            child: Consumer<ThemeProvider>(
+                                builder: (context, themeProvider, child) {
+                              return ClipRRect(
+                                borderRadius: BorderRadius.circular(10.0),
+                                child: themeProvider.darkTheme
+                                    ? Image.asset(
+                                        'assets/images/sample/darkSample.png',
+                                        fit: BoxFit.fill,
+                                      )
+                                    : Image.asset(
+                                        'assets/images/sample/lightSample.png',
+                                        fit: BoxFit.fill,
+                                      ),
+                              );
+                            }),
                           ),
                         ),
                       ),
