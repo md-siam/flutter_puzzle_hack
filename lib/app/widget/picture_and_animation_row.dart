@@ -15,11 +15,11 @@ class SamplePictureAndAnimationRow extends StatelessWidget {
   const SamplePictureAndAnimationRow({
     Key? key,
     required bool isPlaying,
-    required RiveAnimationController controller2,
     required RiveAnimationController controller1,
+    required RiveAnimationController controller2,
   })  : _isPlaying = isPlaying,
-        _controller2 = controller2,
         _controller1 = controller1,
+        _controller2 = controller2,
         super(key: key);
 
   @override
