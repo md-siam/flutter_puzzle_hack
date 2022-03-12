@@ -53,6 +53,8 @@ dependencies:
   day_night_switcher: ^0.2.0+1
   # For playing 'button click' sound
   audioplayers: ^0.20.1
+  # For animation
+  rive: ^0.8.1
 
 dev_dependencies:
   flutter_test:
@@ -79,6 +81,8 @@ flutter:
   assets:
     - assets/audio/
     - assets/images/
+    - assets/images/sample/
+    - assets/animation/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

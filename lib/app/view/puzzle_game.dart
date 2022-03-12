@@ -1,4 +1,6 @@
 import 'dart:async';
+import 'package:clay_containers/widgets/clay_container.dart';
+import 'package:rive/rive.dart';
 import 'package:flutter/material.dart';
 
 import '/app/widget/top_appbar.dart';
@@ -13,6 +15,8 @@ class PuzzleGame extends StatefulWidget {
 }
 
 class _PuzzleGameState extends State<PuzzleGame> {
+  late RiveAnimationController _controller;
+  bool _isPlaying = false;
   var numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15];
   int move = 0;
 
@@ -25,6 +29,13 @@ class _PuzzleGameState extends State<PuzzleGame> {
   void initState() {
     super.initState();
     numbers.shuffle();
+    _controller = OneShotAnimation(
+      'lookUp',
+      // 'slowDance'
+      autoplay: false,
+      onStop: () => setState(() => _isPlaying = false),
+      onStart: () => setState(() => _isPlaying = true),
+    );
   }
 
   @override
@@ -39,22 +50,64 @@ class _PuzzleGameState extends State<PuzzleGame> {
     return Scaffold(
       appBar: const TopAppBar(),
       body: SafeArea(
-        child: Center(
-          child: SingleChildScrollView(
-            controller: null,
-            child: Column(
-              children: [
-                MenuItems(
-                  reset: reset,
-                  move: move,
-                  secondsPassed: secondsPassed,
-                ),
-                const SizedBox(height: 10.0),
-                Grid(
-                  numbers: numbers,
-                  clickGrid: clickGrid,
-                ),
-              ],
+        child: SingleChildScrollView(
+          controller: null,
+          child: Center(
+            child: SizedBox(
+              width: 800,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      SizedBox(
+                        height: 200.0,
+                        width: 200.0,
+                        child: Padding(
+                          padding: const EdgeInsets.all(20.0),
+                          child: ClayContainer(
+                            color: Theme.of(context).primaryColor,
+                            borderRadius: 10.0,
+                            child: ClipRRect(
+                              borderRadius: BorderRadius.circular(10.0),
+                              child: Image.asset(
+                                'assets/images/sample/darkSample.png',
+                                fit: BoxFit.fill,
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                      SizedBox(
+                        height: 200.0,
+                        width: 200.0,
+                        child: RiveAnimation.asset(
+                          'assets/animation/dash.riv',
+                          animations: const ['idle'],
+                          controllers: [_controller],
+                        ),
+                      ),
+                    ],
+                  ),
+                  Center(
+                    child: Column(
+                      children: [
+                        MenuItems(
+                          reset: reset,
+                          move: move,
+                          secondsPassed: secondsPassed,
+                        ),
+                        const SizedBox(height: 10.0),
+                        Grid(
+                          numbers: numbers,
+                          clickGrid: clickGrid,
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
             ),
           ),
         ),
@@ -149,7 +202,7 @@ class _PuzzleGameState extends State<PuzzleGame> {
                           ),
                         ),
                       ),
-                    )
+                    ),
                   ],
                 ),
               ),
