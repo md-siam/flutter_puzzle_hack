@@ -3,14 +3,20 @@ import 'package:provider/provider.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:day_night_switcher/day_night_switcher.dart';
 import 'package:responsive_framework/responsive_framework.dart';
+import 'package:rive/rive.dart';
 
 import 'util/dropdown_menu.dart';
 import '../provider/theme_provider.dart';
 import '../provider/sound_provider.dart';
 
+// ignore: must_be_immutable
 class TopAppBar extends StatefulWidget with PreferredSizeWidget {
-  const TopAppBar({
+  
+  RiveAnimationController controller;
+  TopAppBar({
     Key? key,
+    
+    required this.controller
   }) : super(key: key);
 
   @override
@@ -38,6 +44,7 @@ class _TopAppBarState extends State<TopAppBar> {
                       dayBackgroundColor: const Color(0xFF0C91D6),
                       isDarkModeEnabled: themeProvider.darkTheme,
                       onStateChanged: (value) {
+                        widget.controller.isActive = true;
                         themeProvider.darkTheme
                             ? soundProvider.playLightSound()
                             : soundProvider.playDarkSound();
@@ -59,6 +66,7 @@ class _TopAppBarState extends State<TopAppBar> {
                               dayBackgroundColor: const Color(0xFF0C91D6),
                               isDarkModeEnabled: themeProvider.darkTheme,
                               onStateChanged: (value) {
+                                widget.controller.isActive = true;
                                 themeProvider.darkTheme
                                     ? soundProvider.playLightSound()
                                     : soundProvider.playDarkSound();

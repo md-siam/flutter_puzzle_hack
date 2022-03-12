@@ -5,9 +5,10 @@ import 'package:provider/provider.dart';
 import 'package:clay_containers/widgets/clay_container.dart';
 
 import '/app/widget/grid.dart';
-import '/app/widget/top_appbar.dart';
-import '/app/provider/theme_provider.dart';
 import '../widget/menu_items.dart';
+import '/app/widget/top_appbar.dart';
+import '/app/provider/sound_provider.dart';
+import '/app/provider/theme_provider.dart';
 
 class PuzzleGame extends StatefulWidget {
   const PuzzleGame({Key? key}) : super(key: key);
@@ -17,8 +18,9 @@ class PuzzleGame extends StatefulWidget {
 }
 
 class _PuzzleGameState extends State<PuzzleGame> {
-  late RiveAnimationController _controller;
-  bool isPlaying = false;
+  late RiveAnimationController _controller1;
+  late RiveAnimationController _controller2;
+  bool _isPlaying = false;
   var numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15];
   int move = 0;
 
@@ -31,12 +33,17 @@ class _PuzzleGameState extends State<PuzzleGame> {
   void initState() {
     super.initState();
     numbers.shuffle();
-    _controller = OneShotAnimation(
+    _controller1 = OneShotAnimation(
       'lookUp',
-      // 'slowDance'
       autoplay: false,
-      onStop: () => setState(() => isPlaying = false),
-      onStart: () => setState(() => isPlaying = true),
+      onStop: () => setState(() => _isPlaying = false),
+      onStart: () => setState(() => _isPlaying = true),
+    );
+    _controller2 = OneShotAnimation(
+      'slowDance',
+      autoplay: false,
+      onStop: () => setState(() => _isPlaying = false),
+      onStart: () => setState(() => _isPlaying = true),
     );
   }
 
@@ -50,7 +57,7 @@ class _PuzzleGameState extends State<PuzzleGame> {
     );
 
     return Scaffold(
-      appBar: const TopAppBar(),
+      appBar: TopAppBar(controller: _controller1),
       body: SafeArea(
         child: SingleChildScrollView(
           controller: null,
@@ -89,15 +96,28 @@ class _PuzzleGameState extends State<PuzzleGame> {
                           ),
                         ),
                       ),
-                      SizedBox(
-                        height: 200.0,
-                        width: 200.0,
-                        child: RiveAnimation.asset(
-                          'assets/animation/dash.riv',
-                          animations: const ['idle'],
-                          controllers: [_controller],
-                        ),
-                      ),
+                      Consumer<SoundProvider>(
+                          builder: (context, soundProvider, child) {
+                        return GestureDetector(
+                          onTap: () {
+                            _isPlaying
+                                ? soundProvider.dashIdleSound()
+                                : soundProvider.dashDanceSound();
+                            _isPlaying
+                                ? _controller2.isActive = false
+                                : _controller2.isActive = true;
+                          },
+                          child: SizedBox(
+                            height: 200.0,
+                            width: 200.0,
+                            child: RiveAnimation.asset(
+                              'assets/animation/dash.riv',
+                              animations: const ['idle'],
+                              controllers: [_controller1, _controller2],
+                            ),
+                          ),
+                        );
+                      }),
                     ],
                   ),
                   Center(

@@ -21,7 +21,7 @@ class SoundProvider extends ChangeNotifier {
     notifyListeners();
   }
 
-  //*****  R E S E T   S O U N D  ****//
+  //*****  R E S E T   B U T T O N   S O U N D  ****//
   playResetSound() async {
     player = _isMute
         ? await audioCache.play(
@@ -35,7 +35,34 @@ class SoundProvider extends ChangeNotifier {
     notifyListeners();
   }
 
-  //*****  S T O P   S O U N D  ****//
+  //*****  D A S H   S O U N D  ****//
+  dashDanceSound() async {
+    player = _isMute
+        ? await audioCache.play(
+            'mute.wav',
+            mode: PlayerMode.LOW_LATENCY,
+          )
+        : await audioCache.play(
+            'dash_dance_sound.wav',
+            mode: PlayerMode.LOW_LATENCY,
+          );
+    notifyListeners();
+  }
+
+  dashIdleSound() async {
+    player = _isMute
+        ? await audioCache.play(
+            'mute.wav',
+            mode: PlayerMode.LOW_LATENCY,
+          )
+        : await audioCache.play(
+            'dash_idle_sound.wav',
+            mode: PlayerMode.LOW_LATENCY,
+          );
+    notifyListeners();
+  }
+
+  //*****  M U T E   S O U N D  ****//
   stopSound() {
     _isMute = !_isMute;
     notifyListeners();
