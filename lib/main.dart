@@ -6,6 +6,7 @@
 // https://choosealicense.com/licenses/mit/
 
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:responsive_framework/responsive_framework.dart';
@@ -15,6 +16,12 @@ import 'app/provider/theme_provider.dart';
 import 'app/provider/sound_provider.dart';
 
 void main() {
+  // For disabling landscape view in mobiles & tablet
+  WidgetsFlutterBinding.ensureInitialized();
+  SystemChrome.setPreferredOrientations(
+    [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown],
+  );
+
   runApp(
     MultiProvider(
       providers: [
