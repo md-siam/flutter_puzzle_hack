@@ -63,7 +63,10 @@ class MyTheme {
     splashColor: Colors.white12, // using this for MyButton shadow2 color
     iconTheme: const IconThemeData(color: Color(0xFFFADA74)),
     textTheme: const TextTheme(
+      headline5: TextStyle(color: Colors.white),
       bodyText2: TextStyle(color: Color(0xFFFADA74)),
+      caption: TextStyle(color: Color(0xFFFADA74)),
+      subtitle1: TextStyle(color: Colors.white),
     ),
     dialogBackgroundColor: const Color(0xFF253341),
     cardColor: const Color(0xFF15202B),
