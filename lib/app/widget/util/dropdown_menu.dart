@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 
 import 'design/arrow_clipper.dart';
 import '../../provider/sound_provider.dart';
+import '../../provider/appinfo_provider.dart';
 
 class CustomDropdownMenu extends StatefulWidget {
   final List<Icon> icons;
@@ -164,42 +165,35 @@ class _CustomDropdownMenuState extends State<CustomDropdownMenu>
   Consumer<SoundProvider> onSelected(int index) {
     return Consumer<SoundProvider>(
       builder: (context, soundProvider, child) {
-        return GestureDetector(
-          onTap: () {
-            switch (index) {
-              case 0:
-                soundProvider.stopSound();
-                break;
+        return Consumer<AppInfoProvider>(
+          builder: (context, appInfoProvider, child) {
+            return GestureDetector(
+              onTap: () {
+                switch (index) {
+                  case 0:
+                    soundProvider.stopSound();
+                    break;
 
-              case 1:
-                showAboutDialog(
-                  context: context,
-                  applicationIcon: const Icon(
-                    Icons.gamepad_rounded,
-                    size: 80.0,
-                  ),
-                  applicationName: 'Puzzle Hack',
-                  applicationVersion: '1.0.0',
-                  applicationLegalese: '©2022, mdsiam.xyz',
-                  children: const [
-                    Text(
-                      '     I dedicate this app to all the freedom fighters who have died for the Bengali language, and I quote in Bengali - "আমরা তোমাদের ভুলব না।"\n     For bug founder: Please send me an email mentioning the problem, and your device model.\nEmail: md.siam03@gmail.com',
-                      textAlign: TextAlign.justify,
-                    ),
-                  ],
-                );
-                break;
-            }
-            //onSelected(context, index);
-
-            //widget.onChange!(index);
-            closeMenu();
+                  case 1:
+                    showAboutDialog(
+                      context: context,
+                      applicationIcon: appInfoProvider.applicationIcon,
+                      applicationName: appInfoProvider.applicationName,
+                      applicationVersion: appInfoProvider.applicationVersion,
+                      applicationLegalese: appInfoProvider.applicationLegalese,
+                      children: appInfoProvider.children,
+                    );
+                    break;
+                }
+                closeMenu();
+              },
+              child: SizedBox(
+                width: buttonSize.width,
+                height: buttonSize.height,
+                child: widget.icons[index],
+              ),
+            );
           },
-          child: SizedBox(
-            width: buttonSize.width,
-            height: buttonSize.height,
-            child: widget.icons[index],
-          ),
         );
       },
     );

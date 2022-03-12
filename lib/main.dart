@@ -14,6 +14,7 @@ import 'package:responsive_framework/responsive_framework.dart';
 import 'app/view/puzzle_game.dart';
 import 'app/provider/theme_provider.dart';
 import 'app/provider/sound_provider.dart';
+import 'app/provider/appinfo_provider.dart';
 
 void main() {
   // For disabling landscape view in mobiles & tablet
@@ -25,12 +26,9 @@ void main() {
   runApp(
     MultiProvider(
       providers: [
-        ChangeNotifierProvider(
-          create: (_) => ThemeProvider(),
-        ),
-        ChangeNotifierProvider(
-          create: (_) => SoundProvider(),
-        ),
+        ChangeNotifierProvider(create: (_) => ThemeProvider()),
+        ChangeNotifierProvider(create: (_) => SoundProvider()),
+        Provider(create: (_) => AppInfoProvider()),
       ],
       child: const MyApp(),
     ),

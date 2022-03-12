@@ -8,16 +8,12 @@ import 'package:responsive_framework/responsive_framework.dart';
 import 'util/dropdown_menu.dart';
 import '../provider/theme_provider.dart';
 import '../provider/sound_provider.dart';
+import '../provider/appinfo_provider.dart';
 
 // ignore: must_be_immutable
 class TopAppBar extends StatefulWidget with PreferredSizeWidget {
-  
   RiveAnimationController controller;
-  TopAppBar({
-    Key? key,
-    
-    required this.controller
-  }) : super(key: key);
+  TopAppBar({Key? key, required this.controller}) : super(key: key);
 
   @override
   State<TopAppBar> createState() => _TopAppBarState();
@@ -129,12 +125,25 @@ class _TopAppBarState extends State<TopAppBar> {
                           : const Icon(Icons.volume_up, size: 40.0),
                     ),
                     const SizedBox(width: 10.0),
-                    IconButton(
-                      onPressed: () {
-                        soundProvider.playMenuOpen();
-                        popupDialog(context);
+                    Consumer<AppInfoProvider>(
+                      builder: (context, appInfoProvider, child) {
+                        return IconButton(
+                          onPressed: () {
+                            soundProvider.playMenuOpen();
+                            showAboutDialog(
+                              context: context,
+                              applicationIcon: appInfoProvider.applicationIcon,
+                              applicationName: appInfoProvider.applicationName,
+                              applicationVersion:
+                                  appInfoProvider.applicationVersion,
+                              applicationLegalese:
+                                  appInfoProvider.applicationLegalese,
+                              children: appInfoProvider.children,
+                            );
+                          },
+                          icon: const Icon(Icons.info_outline, size: 40.0),
+                        );
                       },
-                      icon: const Icon(Icons.info_outline, size: 40.0),
                     ),
                     const SizedBox(width: 15.0),
                   ],
@@ -142,25 +151,6 @@ class _TopAppBarState extends State<TopAppBar> {
               ),
             );
           },
-        ),
-      ],
-    );
-  }
-
-  void popupDialog(BuildContext context) {
-    return showAboutDialog(
-      context: context,
-      applicationIcon: const Icon(
-        Icons.gamepad_rounded,
-        size: 80.0,
-      ),
-      applicationName: 'Puzzle Hack',
-      applicationVersion: '1.0.0',
-      applicationLegalese: '©2022, mdsiam.xyz',
-      children: const [
-        Text(
-          '     I dedicate this app to all the freedom fighters who have died for the Bengali language, and I quote in Bengali - "আমরা তোমাদের ভুলব না।"\n     For bug founder: Please send me an email mentioning the problem, and your device model.\nEmail: md.siam03@gmail.com',
-          textAlign: TextAlign.justify,
         ),
       ],
     );

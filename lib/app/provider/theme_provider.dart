@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-
 class ThemeProvider extends ChangeNotifier {
   bool _darkTheme = false;
   bool get darkTheme => _darkTheme;
@@ -9,7 +8,6 @@ class ThemeProvider extends ChangeNotifier {
     _darkTheme = !_darkTheme;
     notifyListeners();
   }
-
 }
 
 class MyTheme {
@@ -44,6 +42,7 @@ class MyTheme {
       style: TextButton.styleFrom(primary: Colors.blueAccent),
     ),
   );
+
   //* D  A  R  K     T  H  E  M  E *//
   static final darkTheme = ThemeData.dark().copyWith(
     appBarTheme: const AppBarTheme(

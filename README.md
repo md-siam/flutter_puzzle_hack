@@ -15,6 +15,7 @@ A new Flutter project.
 lib
 ├── app
 │   ├── provider
+│   │   ├── appinfo_provider.dart
 │   │   ├── sound_provider.dart
 │   │   └── theme_provider.dart
 │   ├── view

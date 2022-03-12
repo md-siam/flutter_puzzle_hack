@@ -68,7 +68,7 @@ class SoundProvider extends ChangeNotifier {
     notifyListeners();
   }
 
-  //*****  D A R K M O D E   S W I T C H  ****//
+  //*****  D A R K M O D E   S W I T C H  S O U N D  ****//
   playDarkSound() async {
     player = _isMute
         ? await audioCache.play(
@@ -95,7 +95,7 @@ class SoundProvider extends ChangeNotifier {
     notifyListeners();
   }
 
-  //*****  D R O P D O W N   M E N U  ****//
+  //*****  D R O P D O W N   M E N U  S O U N D  ****//
   playMenuOpen() async {
     player = _isMute
         ? await audioCache.play(
