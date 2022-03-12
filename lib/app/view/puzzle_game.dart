@@ -1,12 +1,13 @@
 import 'dart:async';
 import 'package:rive/rive.dart';
 import 'package:flutter/material.dart';
-
+import 'package:provider/provider.dart';
 
 import '/app/widget/grid.dart';
 import '../widget/menu_items.dart';
-import '/app/widget/top_appbar.dart';
 import '../widget/winning_card.dart';
+import '/app/widget/top_appbar.dart';
+import '/app/provider/sound_provider.dart';
 import '../widget/picture_and_animation_row.dart';
 
 class PuzzleGame extends StatefulWidget {
@@ -80,9 +81,10 @@ class _PuzzleGameState extends State<PuzzleGame> {
                           secondsPassed: secondsPassed,
                         ),
                         SizedBox(height: deviceWidth <= 380 ? 0.0 : 10.0),
-                        Grid(
-                          numbers: numbers,
-                          clickGrid: clickGrid,
+                        Consumer<SoundProvider>(
+                          builder: (context, soundProvider, child) {
+                            return clickGrid(soundProvider);
+                          },
                         ),
                       ],
                     ),
@@ -96,22 +98,29 @@ class _PuzzleGameState extends State<PuzzleGame> {
     );
   }
 
-  void clickGrid(index) {
-    if (secondsPassed == 0) {
-      isActive = true;
-    }
-    if (index - 1 >= 0 && numbers[index - 1] == 0 && index % 4 != 0 ||
-        index + 1 < 16 && numbers[index + 1] == 0 && (index + 1) % 4 != 0 ||
-        (index - 4 >= 0 && numbers[index - 4] == 0) ||
-        (index + 4 < 16 && numbers[index + 4] == 0)) {
-      setState(() {
-        move++;
-
-        numbers[numbers.indexOf(0)] = numbers[index];
-        numbers[index] = 0;
-      });
-    }
-    checkWin();
+  Grid clickGrid(SoundProvider soundProvider) {
+    return Grid(
+      numbers: numbers,
+      clickGrid: (index) {
+        if (secondsPassed == 0) {
+          isActive = true;
+        }
+        if (index - 1 >= 0 && numbers[index - 1] == 0 && index % 4 != 0 ||
+            index + 1 < 16 && numbers[index + 1] == 0 && (index + 1) % 4 != 0 ||
+            (index - 4 >= 0 && numbers[index - 4] == 0) ||
+            (index + 4 < 16 && numbers[index + 4] == 0)) {
+          setState(() {
+            move++;
+            soundProvider.playSlidingSound();
+            numbers[numbers.indexOf(0)] = numbers[index];
+            numbers[index] = 0;
+          });
+        } else {
+          soundProvider.playFailSlidingSound();
+        }
+        checkWin();
+      },
+    );
   }
 
   void startTime() {

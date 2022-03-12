@@ -15,7 +15,20 @@ class SoundProvider extends ChangeNotifier {
             mode: PlayerMode.LOW_LATENCY,
           )
         : await audioCache.play(
-            'sliding_sound_2.wav',
+            'sliding_sound.wav',
+            mode: PlayerMode.LOW_LATENCY,
+          );
+    notifyListeners();
+  }
+
+  playFailSlidingSound() async {
+    player = _isMute
+        ? await audioCache.play(
+            'mute.wav',
+            mode: PlayerMode.LOW_LATENCY,
+          )
+        : await audioCache.play(
+            'fail_sliding_sound.wav',
             mode: PlayerMode.LOW_LATENCY,
           );
     notifyListeners();

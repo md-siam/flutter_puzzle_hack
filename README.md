@@ -9,7 +9,7 @@
 
 A new Flutter project.
 
-## Files Pattern Inside `'lib'` Folder
+## File Pattern Inside The `'lib'` Folder
 
 ```
 lib
