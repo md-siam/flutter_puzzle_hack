@@ -1,10 +1,12 @@
 import 'dart:async';
-import 'package:clay_containers/widgets/clay_container.dart';
 import 'package:rive/rive.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:clay_containers/widgets/clay_container.dart';
 
-import '/app/widget/top_appbar.dart';
 import '/app/widget/grid.dart';
+import '/app/widget/top_appbar.dart';
+import '/app/provider/theme_provider.dart';
 import '../widget/menu_items.dart';
 
 class PuzzleGame extends StatefulWidget {
