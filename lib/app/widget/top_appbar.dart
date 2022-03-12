@@ -1,9 +1,9 @@
+import 'package:rive/rive.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:day_night_switcher/day_night_switcher.dart';
 import 'package:responsive_framework/responsive_framework.dart';
-import 'package:rive/rive.dart';
 
 import 'util/dropdown_menu.dart';
 import '../provider/theme_provider.dart';
