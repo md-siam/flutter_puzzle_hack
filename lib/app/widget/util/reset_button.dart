@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:responsive_framework/responsive_framework.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import 'design/neumorphic_button.dart';
 
@@ -25,8 +26,9 @@ class ResetButton extends StatelessWidget {
             ],
           ).value,
           child: NeumorphicButton(
+            icon: const FaIcon(FontAwesomeIcons.redoAlt, size: 18),
             buttonText: 'Reset',
-            reset: reset,
+            function: reset,
           ),
         ),
       ],

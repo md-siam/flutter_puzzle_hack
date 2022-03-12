@@ -2,9 +2,11 @@ import 'dart:async';
 import 'package:rive/rive.dart';
 import 'package:flutter/material.dart';
 
+
 import '/app/widget/grid.dart';
 import '../widget/menu_items.dart';
 import '/app/widget/top_appbar.dart';
+import '../widget/winning_card.dart';
 import '../widget/picture_and_animation_row.dart';
 
 class PuzzleGame extends StatefulWidget {
@@ -152,40 +154,9 @@ class _PuzzleGameState extends State<PuzzleGame> {
         builder: (BuildContext context) {
           return Dialog(
             shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(10.0),
-            ), //this right here
-            child: SizedBox(
-              height: 200.0,
-              child: Padding(
-                padding: const EdgeInsets.all(10.0),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    const Text(
-                      "Congratulation!!\n\nYou Won!!\n\n",
-                      style: TextStyle(fontSize: 20.0),
-                      textAlign: TextAlign.center,
-                    ),
-                    SizedBox(
-                      width: 220.0,
-                      child: ElevatedButton(
-                        style: ElevatedButton.styleFrom(
-                          shape: const StadiumBorder(),
-                        ),
-                        onPressed: () => Navigator.pop(context),
-                        child: const Text(
-                          "Close",
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
+              borderRadius: BorderRadius.circular(15.0),
             ),
+            child: const WinningCard(),
           );
         },
       );

@@ -5,12 +5,14 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import '../../../provider/sound_provider.dart';
 
 class NeumorphicButton extends StatefulWidget {
+  final FaIcon icon;
   final String buttonText;
-  final Function reset;
+  final Function function;
   const NeumorphicButton({
     Key? key,
+    required this.icon,
     required this.buttonText,
-    required this.reset,
+    required this.function,
   }) : super(key: key);
 
   @override
@@ -38,7 +40,7 @@ class _NeumorphicButtonState extends State<NeumorphicButton> {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        widget.reset();
+        widget.function();
       },
       child: Padding(
         padding: const EdgeInsets.all(10.0),
@@ -73,7 +75,7 @@ class _NeumorphicButtonState extends State<NeumorphicButton> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    const FaIcon(FontAwesomeIcons.redoAlt, size: 18),
+                    widget.icon,
                     const SizedBox(width: 10.0),
                     Text(
                       widget.buttonText,
