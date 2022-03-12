@@ -103,16 +103,16 @@ class _TopAppBarState extends State<TopAppBar> {
             onChange: (index) {},
           ),
         ),
-        Consumer<SoundProvider>(
-          builder: (context, soundProvider, child) {
-            return ResponsiveVisibility(
-              visible: false,
-              visibleWhen: const [Condition.largerThan(name: MOBILE)],
-              child: Padding(
-                padding: const EdgeInsets.only(bottom: 10.0),
-                child: Row(
-                  children: [
-                    IconButton(
+        ResponsiveVisibility(
+          visible: false,
+          visibleWhen: const [Condition.largerThan(name: MOBILE)],
+          child: Padding(
+            padding: const EdgeInsets.only(bottom: 10.0),
+            child: Row(
+              children: [
+                Consumer<SoundProvider>(
+                  builder: (context, soundProvider, child) {
+                    return IconButton(
                       onPressed: () {
                         soundProvider.playMenuOpen();
                         soundProvider.stopSound();
@@ -123,9 +123,13 @@ class _TopAppBarState extends State<TopAppBar> {
                       icon: isMute
                           ? const Icon(Icons.volume_off, size: 40.0)
                           : const Icon(Icons.volume_up, size: 40.0),
-                    ),
-                    const SizedBox(width: 10.0),
-                    Consumer<AppInfoProvider>(
+                    );
+                  },
+                ),
+                const SizedBox(width: 10.0),
+                Consumer<SoundProvider>(
+                  builder: (context, soundProvider, child) {
+                    return Consumer<AppInfoProvider>(
                       builder: (context, appInfoProvider, child) {
                         return IconButton(
                           onPressed: () {
@@ -144,13 +148,13 @@ class _TopAppBarState extends State<TopAppBar> {
                           icon: const Icon(Icons.info_outline, size: 40.0),
                         );
                       },
-                    ),
-                    const SizedBox(width: 15.0),
-                  ],
+                    );
+                  },
                 ),
-              ),
-            );
-          },
+                const SizedBox(width: 15.0),
+              ],
+            ),
+          ),
         ),
       ],
     );

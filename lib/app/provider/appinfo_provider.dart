@@ -18,7 +18,7 @@ class AppInfoProvider {
   String get applicationVersion => _applicationVersion;
 
   //** P R O V I D E S    A P P L E G A L E S E **//
-  final String _applicationLegalese = '©2022, www.mdsiam.xyz';
+  final String _applicationLegalese = '©2022, mdsiam.xyz';
   String get applicationLegalese => _applicationLegalese;
 
   //** P R O V I D E S    A P P I N T R O **//
