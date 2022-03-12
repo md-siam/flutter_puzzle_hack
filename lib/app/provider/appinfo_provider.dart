@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
+/// Provides [AppInfo & LicenseInfo] of the app.
 class AppInfoProvider {
   //** P R O V I D E S    A P P I C O N **//
   final Widget _applicationIcon = const FaIcon(
@@ -18,7 +19,7 @@ class AppInfoProvider {
   String get applicationVersion => _applicationVersion;
 
   //** P R O V I D E S    A P P L E G A L E S E **//
-  final String _applicationLegalese = '©2022, mdsiam.xyz';
+  final String _applicationLegalese = '©2022, http://mdsiam.xyz/';
   String get applicationLegalese => _applicationLegalese;
 
   //** P R O V I D E S    A P P I N T R O **//

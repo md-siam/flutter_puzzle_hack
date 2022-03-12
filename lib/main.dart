@@ -17,7 +17,7 @@ import 'app/provider/sound_provider.dart';
 import 'app/provider/appinfo_provider.dart';
 
 void main() {
-  // For disabling landscape view in mobiles & tablet
+  /// For disabling [landscape] view in mobile & tablet devices
   WidgetsFlutterBinding.ensureInitialized();
   SystemChrome.setPreferredOrientations(
     [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown],
@@ -49,6 +49,9 @@ class MyApp extends StatelessWidget {
               themeProvider.darkTheme ? MyTheme.darkTheme : MyTheme.lightTheme,
           builder: (context, widget) => ResponsiveWrapper.builder(
             ClampingScrollWrapper.builder(context, widget!),
+
+            /// These [Breakpoints] represents the width of the device,
+            /// is is using `responsive_framework` package
             breakpoints: [
               const ResponsiveBreakpoint.resize(350, name: 'ExSmall'),
               const ResponsiveBreakpoint.resize(480, name: MOBILE),
@@ -57,6 +60,10 @@ class MyApp extends StatelessWidget {
               const ResponsiveBreakpoint.autoScale(2460, name: '4K'),
             ],
           ),
+
+          /// This [ResponsiveSizer] is for Making the Puzzle Game
+          /// board `responsive`
+          ///
           home: ResponsiveSizer(
             builder: (context, orientation, screenType) {
               return const PuzzleGame();

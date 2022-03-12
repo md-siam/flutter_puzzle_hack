@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:audioplayers/audioplayers.dart';
 
+/// Provides [Sound] to all the custom widgets of the app.
 class SoundProvider extends ChangeNotifier {
   final AudioCache audioCache = AudioCache(prefix: 'assets/audio/');
   AudioPlayer? player;
@@ -20,7 +21,8 @@ class SoundProvider extends ChangeNotifier {
           );
     notifyListeners();
   }
-
+  
+  //*****  F A I L   S L I D I N G   S O U N D  ****//
   playFailSlidingSound() async {
     player = _isMute
         ? await audioCache.play(
@@ -48,7 +50,7 @@ class SoundProvider extends ChangeNotifier {
     notifyListeners();
   }
 
-  //*****  D A S H   S O U N D  ****//
+  //*****  D A S H   S O U N D  -  D A N C I N G  ****//
   dashDanceSound() async {
     player = _isMute
         ? await audioCache.play(
@@ -61,7 +63,8 @@ class SoundProvider extends ChangeNotifier {
           );
     notifyListeners();
   }
-
+  
+  //*****  D A S H   S O U N D  -  I D L E  ****//
   dashIdleSound() async {
     player = _isMute
         ? await audioCache.play(
@@ -81,7 +84,7 @@ class SoundProvider extends ChangeNotifier {
     notifyListeners();
   }
 
-  //*****  D A R K M O D E   S W I T C H  S O U N D  ****//
+  //*****  D A R K M O D E   O N   S O U N D  ****//
   playDarkSound() async {
     player = _isMute
         ? await audioCache.play(
@@ -94,7 +97,8 @@ class SoundProvider extends ChangeNotifier {
           );
     notifyListeners();
   }
-
+  
+  //*****  L I G H T M O D E   O N   S O U N D  ****//
   playLightSound() async {
     player = _isMute
         ? await audioCache.play(
@@ -108,7 +112,7 @@ class SoundProvider extends ChangeNotifier {
     notifyListeners();
   }
 
-  //*****  D R O P D O W N   M E N U  S O U N D  ****//
+  //*****  D R O P D O W N   M E N U   O P E N  ****//
   playMenuOpen() async {
     player = _isMute
         ? await audioCache.play(
@@ -121,7 +125,8 @@ class SoundProvider extends ChangeNotifier {
           );
     notifyListeners();
   }
-
+  
+  //*****  D R O P D O W N   M E N U   C L O S E  ****//
   playMenuClose() async {
     player = _isMute
         ? await audioCache.play(

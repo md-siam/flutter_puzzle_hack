@@ -9,6 +9,34 @@
 
 A new Flutter project.
 
+## Guide
+
+<p align="center">
+    <img  src="screenshots/images/appintro.png" height="500" ></img>
+</p>
+
+## Demo
+
+<table align="center" style="margin: 0px auto;">
+  <tr>
+    <th>Light Mode</th>
+    <th>Dark Mode</th>
+  </tr>
+  <tr>
+    <td><img align="right" src="screenshots/gifs/lightMode.gif" height="500"></img></td>
+    <td><img align="right" src="screenshots/gifs/darkMode.gif" height="500"></img></td>
+  </tr>
+  </table>
+  <br>
+<table align="center" style="margin: 0px auto;">
+  <tr>
+    <th>Google Chrome</th>
+  </tr>
+  <tr>
+    <td><img align="right" src="screenshots/gifs/darkMode.gif" height="500"></img></td>
+  </tr>
+  </table>
+
 ## File Pattern Inside The `'lib'` Folder
 
 ```

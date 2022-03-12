@@ -1,3 +1,9 @@
+// Copyright (c) 2022, Md. Siam
+// http://mdsiam.xyz/
+//
+// Use of this source code is governed by an MIT-style
+// license that can be found in the LICENSE file or at
+// https://choosealicense.com/licenses/mit/
 import 'package:flutter/material.dart';
 
 // ignore: must_be_immutable
