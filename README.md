@@ -31,6 +31,7 @@ lib
 │   │   │   └── timer.dart
 │   │   ├── grid.dart
 │   │   ├── menu_items.dart
+│   │   ├── picture_and_animation_row.dart
 │   │   └── top_appbar.dart
 ├── generated_plugin_registrant.dart
 └── main.dart

@@ -1,14 +1,11 @@
 import 'dart:async';
 import 'package:rive/rive.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
-import 'package:clay_containers/widgets/clay_container.dart';
 
 import '/app/widget/grid.dart';
 import '../widget/menu_items.dart';
 import '/app/widget/top_appbar.dart';
-import '/app/provider/sound_provider.dart';
-import '/app/provider/theme_provider.dart';
+import '../widget/picture_and_animation_row.dart';
 
 class PuzzleGame extends StatefulWidget {
   const PuzzleGame({Key? key}) : super(key: key);
@@ -49,13 +46,13 @@ class _PuzzleGameState extends State<PuzzleGame> {
 
   @override
   Widget build(BuildContext context) {
+    var deviceWidth = MediaQuery.of(context).size.width;
     timer ??= Timer.periodic(
       duration,
       (Timer t) {
         startTime();
       },
     );
-
     return Scaffold(
       appBar: TopAppBar(controller: _controller1),
       body: SafeArea(
@@ -63,62 +60,14 @@ class _PuzzleGameState extends State<PuzzleGame> {
           controller: null,
           child: Center(
             child: SizedBox(
-              width: 800,
+              width: 800.0,
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      SizedBox(
-                        height: 200.0,
-                        width: 200.0,
-                        child: Padding(
-                          padding: const EdgeInsets.all(20.0),
-                          child: ClayContainer(
-                            color: Theme.of(context).primaryColor,
-                            borderRadius: 10.0,
-                            child: Consumer<ThemeProvider>(
-                                builder: (context, themeProvider, child) {
-                              return ClipRRect(
-                                borderRadius: BorderRadius.circular(10.0),
-                                child: themeProvider.darkTheme
-                                    ? Image.asset(
-                                        'assets/images/sample/darkSample.png',
-                                        fit: BoxFit.fill,
-                                      )
-                                    : Image.asset(
-                                        'assets/images/sample/lightSample.png',
-                                        fit: BoxFit.fill,
-                                      ),
-                              );
-                            }),
-                          ),
-                        ),
-                      ),
-                      Consumer<SoundProvider>(
-                          builder: (context, soundProvider, child) {
-                        return GestureDetector(
-                          onTap: () {
-                            _isPlaying
-                                ? soundProvider.dashIdleSound()
-                                : soundProvider.dashDanceSound();
-                            _isPlaying
-                                ? _controller2.isActive = false
-                                : _controller2.isActive = true;
-                          },
-                          child: SizedBox(
-                            height: 200.0,
-                            width: 200.0,
-                            child: RiveAnimation.asset(
-                              'assets/animation/dash.riv',
-                              animations: const ['idle'],
-                              controllers: [_controller1, _controller2],
-                            ),
-                          ),
-                        );
-                      }),
-                    ],
+                  SamplePictureAndAnimationRow(
+                    isPlaying: _isPlaying,
+                    controller1: _controller1,
+                    controller2: _controller2,
                   ),
                   Center(
                     child: Column(
@@ -128,7 +77,7 @@ class _PuzzleGameState extends State<PuzzleGame> {
                           move: move,
                           secondsPassed: secondsPassed,
                         ),
-                        const SizedBox(height: 10.0),
+                        SizedBox(height: deviceWidth <= 380 ? 0.0 : 10.0),
                         Grid(
                           numbers: numbers,
                           clickGrid: clickGrid,
