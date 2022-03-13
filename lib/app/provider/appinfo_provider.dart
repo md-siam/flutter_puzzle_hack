@@ -25,7 +25,8 @@ class AppInfoProvider {
   //** P R O V I D E S    A P P I N T R O **//
   final List<Widget> _children = [
     const Text(
-      '     I dedicate this app to all the freedom fighters who have died for the Bengali language, and I quote in Bengali\n',
+      '''\n   This game is for the "Flutter Puzzle Hack" contest, 2022. It is a simple slide puzzle game, where the player has to arrange the squares into sorted order.\n   For license information, click on the 'VIEW LICENSES' button below.''',
+      style: TextStyle(fontSize: 16),
       textAlign: TextAlign.justify,
     ),
   ];

@@ -1,9 +1,11 @@
+<img src="screenshots/images/full_width.png" />
+
+# Flutter Puzzle Hack
+
 <img src="screenshots/badges/built-with-love.svg" height="28px"/>&nbsp;&nbsp;
 <img src="screenshots/badges/flutter-dart.svg" height="28px" />&nbsp;&nbsp;
 <a href="https://choosealicense.com/licenses/mit/" target="_blank"><img src="screenshots/badges/license-MIT.svg" height="28px" /></a>&nbsp;&nbsp;
 <img src="screenshots/badges/dart-null_safety-blue.svg" height="28px"/>
-
-# Flutter Puzzle Hack
 
 <img align="right" src="assets/images/icons/playstore.png" height="190"></img>
 
@@ -12,15 +14,15 @@ A new Flutter project.
 ## Guide
 
 <p align="center">
-    <img  src="screenshots/images/appintro.png" height="500" ></img>
+    <img  src="screenshots/images/appintro_half.png" width="800" ></img>
 </p>
 
 ## Demo
 
 <table align="center" style="margin: 0px auto;">
   <tr>
-    <th>Light Mode</th>
-    <th>Dark Mode</th>
+    <th>Light Mode (iPhone 8 Simulator)</th>
+    <th>Dark Mode (iPhone 8 Simulator)</th>
   </tr>
   <tr>
     <td><img align="right" src="screenshots/gifs/lightMode.gif" height="500"></img></td>
@@ -33,7 +35,7 @@ A new Flutter project.
     <th>Google Chrome</th>
   </tr>
   <tr>
-    <td><img align="right" src="screenshots/gifs/darkMode.gif" height="500"></img></td>
+    <td><img align="right" src="screenshots/gifs/google_chrome.gif"></img></td>
   </tr>
   </table>
 

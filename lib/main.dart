@@ -43,7 +43,7 @@ class MyApp extends StatelessWidget {
     return Consumer<ThemeProvider>(
       builder: (context, themeProvider, child) {
         return MaterialApp(
-          title: 'Flutter Puzzle Hack',
+          title: 'Puzzle Hack',
           debugShowCheckedModeBanner: false,
           theme:
               themeProvider.darkTheme ? MyTheme.darkTheme : MyTheme.lightTheme,
