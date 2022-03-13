@@ -53,11 +53,11 @@ class SamplePictureAndAnimationRow extends StatelessWidget {
                     borderRadius: BorderRadius.circular(10.0),
                     child: themeProvider.darkTheme
                         ? Image.asset(
-                            'assets/images/sample/darkSample.png',
+                            'assets/images/darkSample.png',
                             fit: BoxFit.fill,
                           )
                         : Image.asset(
-                            'assets/images/sample/lightSample.png',
+                            'assets/images/lightSample.png',
                             fit: BoxFit.fill,
                           ),
                   );

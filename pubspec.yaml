@@ -21,7 +21,7 @@ dependencies:
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
-  # For Awesome Icons
+  # For awesome icons
   font_awesome_flutter: ^9.2.0
   # For accessing google fonts
   google_fonts: ^2.3.1
@@ -39,7 +39,6 @@ dependencies:
   audioplayers: ^0.20.1
   # For controlling rive animation files
   rive: ^0.8.1
-  
 
 dev_dependencies:
   flutter_test:
@@ -54,5 +53,5 @@ flutter:
   assets:
     - assets/audio/
     - assets/images/
-    - assets/images/sample/
+    - assets/images/icons/
     - assets/animation/
