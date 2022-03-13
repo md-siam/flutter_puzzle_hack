@@ -13,7 +13,7 @@
   This game is for the "Flutter Puzzle Hack" contest, 2022. It is a simple slide puzzle game, where the player has to arrange the squares into sorted order. This game is built using the Flutter framework, which is a cross-platform framework for developing apps for multiple devices.
   Right now, this app has been tested on iOS, Android, and Google Chrome browsers.
 </p>
-<p>
+<p align="justify">
   In addition, it is using some other third-party packages from the open-source community. Thanks to those open-source developers for their amazing packages. Those packages are: 
 </p>
 
@@ -31,17 +31,28 @@
 
 ## Playing Guide
 
-<table align="center" style="margin: 0px auto;">
-  <tr>
-    <td>
-      <img  src="screenshots/images/appintro_half.png" width="800" ></img>
-    </td>
-  </tr>
-</table>
+  <table align="center" style="margin: 0px auto;">
+    <tr>
+      <td>
+        <img  src="screenshots/images/appintro_half.png" width="800" ></img>
+      </td>
+    </tr>
+  </table>
 
-<p align="center">
-  <a href="https://md-siam.github.io/puzzle_hack/" target="_blank"><img src="screenshots/images/PlayNow.png" height="80" ></img></a>
-</p>
+  <p align="justify">
+   The above picture is showing the "Puzzle Hack" game running on an android device. It's also presenting all the functionality of the game. Like: 
+  </p>
+
+  1. Dark/Light mode switch
+  2. Sample of a sorted board
+  3. Total number of moves 
+  4. Dropdown menu for 'Mute' & and 'Info' functionality
+  5. Animated 'Dash'. Click it to see the magic!
+  6. Timer
+
+  <p align="center">
+    <a href="https://md-siam.github.io/puzzle_hack/" target="_blank"><img src="screenshots/images/PlayNow.png" height="80" ></img></a>
+  </p>
 
 ## Puzzle Hack Demo
 
