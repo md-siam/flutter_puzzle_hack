@@ -43,12 +43,13 @@
    The above picture is showing the "Puzzle Hack" game running on an android device. It's also presenting all the functionality of the game. Like: 
   </p>
 
-  1. Dark/Light mode switch
-  2. Sample of a sorted board
-  3. Total number of moves 
-  4. Dropdown menu for 'Mute' & and 'Info' functionality
-  5. Animated 'Dash'. Click it to see the magic!
-  6. Timer
+1. Dark/Light mode switch
+2. Sample image of a sorted board
+3. Total number of 'Moves'
+4. 'Reset' button
+5. Dropdown menu for 'Mute' & and 'Info' functionality
+6. Animated 'Dash'. Click it for the magic!
+7. Timer
 
   <p align="center">
     <a href="https://md-siam.github.io/puzzle_hack/" target="_blank"><img src="screenshots/images/PlayNow.png" height="80" ></img></a>
