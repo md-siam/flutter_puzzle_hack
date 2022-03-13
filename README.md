@@ -40,7 +40,7 @@
 </table>
 
 <p align="center">
-  <a href="https://md-siam.github.io/puzzle_hack/" target="_blank"><img src="screenshots/images/PlayNow.png"/></a>
+  <a href="https://md-siam.github.io/puzzle_hack/" target="_blank"><img src="screenshots/images/PlayNow.png" height="80" ></img></a>
 </p>
 
 ## Puzzle Hack Demo
