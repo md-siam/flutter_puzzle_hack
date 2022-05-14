@@ -5,8 +5,8 @@
 // license that can be found in the LICENSE file or at
 // https://choosealicense.com/licenses/mit/
 import 'package:flutter/material.dart';
-import 'package:responsive_framework/responsive_framework.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:responsive_framework/responsive_framework.dart';
 
 import 'design/neumorphic_button.dart';
 

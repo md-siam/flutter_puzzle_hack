@@ -1,6 +1,6 @@
+import 'package:clay_containers/widgets/clay_container.dart';
 import 'package:flutter/material.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
-import 'package:clay_containers/widgets/clay_container.dart';
 
 import 'util/grid_container.dart';
 

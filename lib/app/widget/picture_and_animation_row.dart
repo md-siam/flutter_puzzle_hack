@@ -1,11 +1,11 @@
-import 'package:rive/rive.dart';
+import 'package:clay_containers/widgets/clay_container.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:clay_containers/widgets/clay_container.dart';
 import 'package:responsive_framework/responsive_framework.dart';
+import 'package:rive/rive.dart';
 
-import '../provider/theme_provider.dart';
 import '../provider/sound_provider.dart';
+import '../provider/theme_provider.dart';
 
 class SamplePictureAndAnimationRow extends StatelessWidget {
   final bool _isPlaying;

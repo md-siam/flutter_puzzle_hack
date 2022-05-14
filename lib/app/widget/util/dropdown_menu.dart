@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import 'design/arrow_clipper.dart';
-import '../../provider/sound_provider.dart';
 import '../../provider/appinfo_provider.dart';
+import '../../provider/sound_provider.dart';
+import 'design/arrow_clipper.dart';
 
 class CustomDropdownMenu extends StatefulWidget {
   final List<Icon> icons;
