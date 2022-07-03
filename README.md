@@ -80,30 +80,29 @@
 ## File Pattern Inside The `'lib'` Folder
 
 ```
-lib
-├── app
-│   ├── provider
+lib/
+├── app/
+│   ├── provider/
 │   │   ├── appinfo_provider.dart
 │   │   ├── sound_provider.dart
 │   │   └── theme_provider.dart
-│   ├── view
+│   ├── view/
 │   │   └── puzzle_game.dart
-│   ├── widget
-│   │   ├── util
-│   │   │   ├── design
-│   │   │   │   ├── arrow_clipper.dart
-│   │   │   │   └── neumorphic_button.dart
-│   │   │   ├── dropdown_menu.dart
-│   │   │   ├── grid_container.dart
-│   │   │   ├── move.dart
-│   │   │   ├── reset_button.dart
-│   │   │   └── timer.dart
-│   │   ├── grid.dart
-│   │   ├── menu_items.dart
-│   │   ├── picture_and_animation_row.dart
-│   │   ├── top_appbar.dart
-│   │   └── winning_card.dart
-│   └── .DS_Store
+│   └── widget/
+│       ├── util/
+│       │   ├── design/
+│       │   │   ├── arrow_clipper.dart
+│       │   │   └── neumorphic_button.dart
+│       │   ├── dropdown_menu.dart
+│       │   ├── grid_container.dart
+│       │   ├── move.dart
+│       │   ├── reset_button.dart
+│       │   └── timer.dart
+│       ├── grid.dart
+│       ├── menu_items.dart
+│       ├── picture_and_animation_row.dart
+│       ├── top_appbar.dart
+│       └── winning_card.dart
 ├── generated_plugin_registrant.dart
 └── main.dart
 ```
