@@ -17,7 +17,7 @@
   In addition, it is using some other third-party packages from the open-source community. Thanks to those open-source developers for their amazing packages. Those packages are: 
 </p>
 
-```
+```yaml
   audioplayers: ^0.20.1          // for playing sound
   clay_containers: ^0.3.2        // for neumorphic design
   day_night_switcher: ^0.2.0+1   // for animated switch
