@@ -2,7 +2,7 @@ import 'package:rive/rive.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:day_night_switcher/day_night_switcher.dart';
+// import 'package:day_night_switcher/day_night_switcher.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 
 import 'util/dropdown_menu.dart';
@@ -24,6 +24,7 @@ class TopAppBar extends StatefulWidget with PreferredSizeWidget {
 
 class _TopAppBarState extends State<TopAppBar> {
   bool isMute = false;
+  bool switchValue = false;
   @override
   Widget build(BuildContext context) {
     return AppBar(
@@ -36,16 +37,30 @@ class _TopAppBarState extends State<TopAppBar> {
                   ResponsiveVisibility(
                     visible: false,
                     visibleWhen: const [Condition.smallerThan(name: MOBILE)],
-                    child: DayNightSwitcherIcon(
-                      dayBackgroundColor: const Color(0xFF0C91D6),
-                      isDarkModeEnabled: themeProvider.darkTheme,
-                      onStateChanged: (value) {
-                        widget.controller.isActive = true;
-                        themeProvider.darkTheme
-                            ? soundProvider.playLightSound()
-                            : soundProvider.playDarkSound();
-                        themeProvider.toggleTheme();
-                      },
+                    // child: DayNightSwitcherIcon(
+                    //   dayBackgroundColor: const Color(0xFF0C91D6),
+                    //   isDarkModeEnabled: themeProvider.darkTheme,
+                    //   onStateChanged: (value) {
+                    //     widget.controller.isActive = true;
+                    //     themeProvider.darkTheme
+                    //         ? soundProvider.playLightSound()
+                    //         : soundProvider.playDarkSound();
+                    //     themeProvider.toggleTheme();
+                    //   },
+                    // ),
+                    child: Padding(
+                      padding: const EdgeInsets.only(top:5.0),
+                      child: Switch.adaptive(
+                        value: switchValue,
+                        onChanged: (newValue) {
+                          widget.controller.isActive = true;
+                          themeProvider.darkTheme
+                              ? soundProvider.playLightSound()
+                              : soundProvider.playDarkSound();
+                          themeProvider.toggleTheme();
+                          switchValue = !switchValue;
+                        },
+                      ),
                     ),
                   ),
                   ResponsiveVisibility(
@@ -58,16 +73,30 @@ class _TopAppBarState extends State<TopAppBar> {
                         children: [
                           SizedBox(
                             width: 50.0,
-                            child: DayNightSwitcher(
-                              dayBackgroundColor: const Color(0xFF0C91D6),
-                              isDarkModeEnabled: themeProvider.darkTheme,
-                              onStateChanged: (value) {
-                                widget.controller.isActive = true;
-                                themeProvider.darkTheme
-                                    ? soundProvider.playLightSound()
-                                    : soundProvider.playDarkSound();
-                                themeProvider.toggleTheme();
-                              },
+                            // child: DayNightSwitcher(
+                            //   dayBackgroundColor: const Color(0xFF0C91D6),
+                            //   isDarkModeEnabled: themeProvider.darkTheme,
+                            //   onStateChanged: (value) {
+                            //     widget.controller.isActive = true;
+                            //     themeProvider.darkTheme
+                            //         ? soundProvider.playLightSound()
+                            //         : soundProvider.playDarkSound();
+                            //     themeProvider.toggleTheme();
+                            //   },
+                            // ),
+                            child: Padding(
+                              padding: const EdgeInsets.only(top: 5.0),
+                              child: Switch.adaptive(
+                                value: switchValue,
+                                onChanged: (newValue) {
+                                  widget.controller.isActive = true;
+                                  themeProvider.darkTheme
+                                      ? soundProvider.playLightSound()
+                                      : soundProvider.playDarkSound();
+                                  themeProvider.toggleTheme();
+                                  switchValue = !switchValue;
+                                },
+                              ),
                             ),
                           ),
                         ],
