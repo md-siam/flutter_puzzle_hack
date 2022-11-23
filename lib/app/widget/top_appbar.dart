@@ -1,14 +1,15 @@
-import 'package:rive/rive.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 // import 'package:day_night_switcher/day_night_switcher.dart';
 import 'package:responsive_framework/responsive_framework.dart';
+import 'package:rive/rive.dart';
 
-import 'util/dropdown_menu.dart';
-import '../provider/theme_provider.dart';
-import '../provider/sound_provider.dart';
 import '../provider/appinfo_provider.dart';
+import '../provider/sound_provider.dart';
+import '../provider/theme_provider.dart';
+import 'util/dropdown_menu.dart';
 
 // ignore: must_be_immutable
 class TopAppBar extends StatefulWidget with PreferredSizeWidget {
@@ -50,7 +51,7 @@ class _TopAppBarState extends State<TopAppBar> {
                     // ),
                     child: Padding(
                       padding: const EdgeInsets.only(top:5.0),
-                      child: Switch.adaptive(
+                      child: CupertinoSwitch(
                         value: switchValue,
                         onChanged: (newValue) {
                           widget.controller.isActive = true;
