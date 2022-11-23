@@ -50,7 +50,7 @@ class _TopAppBarState extends State<TopAppBar> {
                     //   },
                     // ),
                     child: Padding(
-                      padding: const EdgeInsets.only(top:5.0),
+                      padding: const EdgeInsets.only(left: 10, top: 10),
                       child: CupertinoSwitch(
                         value: switchValue,
                         onChanged: (newValue) {
