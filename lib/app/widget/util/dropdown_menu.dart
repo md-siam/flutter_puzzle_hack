@@ -66,7 +66,7 @@ class _CustomDropdownMenuState extends State<CustomDropdownMenu>
     findButton();
     _animationController.forward();
     _overlayEntry = _overlayEntryBuilder();
-    Overlay.of(context)!.insert(_overlayEntry);
+    Overlay.of(context).insert(_overlayEntry);
     isMenuOpen = !isMenuOpen;
   }
 
