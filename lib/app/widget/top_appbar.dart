@@ -12,7 +12,7 @@ import '../provider/theme_provider.dart';
 import 'util/dropdown_menu.dart';
 
 // ignore: must_be_immutable
-class TopAppBar extends StatefulWidget with PreferredSizeWidget {
+class TopAppBar extends StatefulWidget implements PreferredSizeWidget {
   RiveAnimationController controller;
   TopAppBar({Key? key, required this.controller}) : super(key: key);
 
